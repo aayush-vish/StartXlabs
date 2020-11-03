@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartXlabs Assignment</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="App">
+        <div class="questions">
+          <h1>StartXlabs Assignment</h1>
+          <div class="q1">
+            <p>1.Get numbers of hours, minutes and seconds from the number of seconds.</p>
+            <label>Enter Number of seconds:</label>
+            <input type="number" id="i1"></input><br></br>
+            <button id="q1" onclick="solution1(),display()">Solution</button>
+            <div id="ans1">
+                <p id="sol1"></p>
+                <p id="sol2"></p>
+                <p id="sol3"></p>
+            </div>
+          </div>
+          <div class="q2">
+            <p>2.You are given two numbers L and R, you have to find if XOR of all the numbers in range L to R is odd or even.</p>
+            <label>Enter number of testcases:</label>
+            <input type="number" id="i2"><br></br>
+            <button id="q2"onclick="solution2(),display()">Solution</button>
+            <div id="ans2">
+            </div>
+          </div>
+          <div class="q3">
+            <p>3.You are given with T number of Strings. You need to sort the strings according to their first character.</p>
+            <label>Enter number of testcases:</label>
+            <input type="number" id="i3"><br></br>
+            <button id="q3" onclick="solution3(), display()">Solution</button>
+            <div id="ans3">
+                
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+          <h4>Contact Me</h4>
+          
+      </div>
+      <script>
+          function display(){
+              var ans1=document.getElementById("ans1");
+              var ans2=document.getElementById("ans2");
+              var ans3=document.getElementById("ans3");
+              if(ans1.style.display==="block"){
+                  ans1.style.display="none";
+              }else{
+                  ans1.style.display="block";
+              }
+              if(ans2.style.display==="block"){
+                  ans2.style.display="none";
+              }else{
+                  ans2.style.display="block";
+              }
+              if(ans3.style.display==="block"){
+                  ans3.style.display="none";
+              }else{
+                  ans3.style.display="block";
+              }   
+              }
+
+              function solution1(){
+                 var n=document.getElementById("i1");
+                 var num=n.value;
+                 var hours = Math.floor(num / 3600);
+                 var minutes = (Math.floor(num / 60)) % 60;
+                 var  seconds = num % 60;
+                 document.getElementById("sol1").innerHTML=hours;
+                 document.getElementById("sol2").innerHTML=minutes;
+                 document.getElementById("sol3").innerHTML=seconds;
+                //  console.log(minutes);
+              }
+              function solution2(){
+                  var tc=document.getElementById("i2");
+                  var t=tc.value;
+                  for(let i=0;i<t;i++){
+                      var l=prompt("Enter L");
+                      var r=prompt("Enter R");
+                      var xor=Math.floor((r-l)/2);
+                    //   alert(xor);
+                      if(r%2===1 || l%2===1){
+                          xor++;
+                      }
+                      let p = document.createElement('p');
+                      if(xor%2===0){
+                            p.innerHTML = '<p>Even</p>';
+                           document.getElementById("ans2").appendChild(p);
+                      }
+                      else{
+                          p.innerHTML = '<p>Odd</p>';
+                          document.getElementById("ans2").appendChild(p);
+                      }
+                  }
+                }
+                  function solution3(){
+                    var arraystring=Array();
+                    var tc=document.getElementById("i3");
+                    var t=tc.value;
+                    // alert(t);
+                    for(let i=0;i<t;i++){
+                      var str=prompt("Enter String");
+                      arraystring[i]=str;
+                  }
+                  arraystring.sort();
+                  for(let i=0;i<t;i++){
+                    let p = document.createElement('p');
+                    p.innerHTML = arraystring[i];
+                    document.getElementById("ans3").appendChild(p);
+                    //   document.getElementById("sol31").innerHTML=arraystring[i];
+                  }
+              }
+      </script>
+</body>
+</html>
